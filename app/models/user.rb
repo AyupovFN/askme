@@ -1,12 +1,21 @@
 require 'openssl'
+
+
 class User < ApplicationRecord
   # Параметры работы модуля шифрования паролей
   ITERATIONS = 2000
   DIGEST = OpenSSL::Digest::SHA256.new
 
+
   has_many :questions
-  validates :email, :username, presence: true
-  validates :email, :username, uniqueness: true
+  validates :email, email_format: { message: 'Invalid email format' }
+
+  validates :username,
+            uniqueness: true,
+            presence: true,
+            length: { maximum: 40, too_long: "%{count} characters is the maximum allowed" }
+  validates_format_of :username, :with => /\A(?=.* )[^0-9`!@#\\\$%\^&*\;+=]{4,}\z/
+
 
   attr_accessor :password
   validates_presence_of :password, on: :create

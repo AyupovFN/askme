@@ -119,6 +119,8 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
+    validates_email_format_of (1.6.3)
+      i18n
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -137,6 +139,7 @@ DEPENDENCIES
   listen
   rails (~> 5.2.4, >= 5.2.4.1)
   sqlite3
+  validates_email_format_of
   web-console (>= 3.3.0)
 
 RUBY VERSION
