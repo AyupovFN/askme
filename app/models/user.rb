@@ -13,13 +13,12 @@ class User < ApplicationRecord
   validates :username,
             uniqueness: true,
             presence: true,
-            length: { maximum: 40, too_long: "%{count} characters is the maximum allowed" }
-  validates_format_of :username, :with => /\A(?=.* )[^0-9`!@#\\\$%\^&*\;+=]{4,}\z/
+            length: { maximum: 40 }
+  validates :username, :with => /\A(?=.* )[^0-9`!@#\\\$%\^&*\;+=]{4,}\z/
 
 
   attr_accessor :password
-  validates_presence_of :password, on: :create
-  validates_confirmation_of :password
+  validates :password, on: :create, confirmation: true
 
   before_save :encrypt_password
 
