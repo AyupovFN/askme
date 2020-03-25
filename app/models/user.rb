@@ -12,7 +12,7 @@ class User < ApplicationRecord
             uniqueness: true,
             presence: true,
             length: { maximum: 40 }
-  validates :username, format: { with: /\A(?=.* )[^0-9`!@#\\\$%\^&*\;+=]{4,}\z/ }
+  validates :username, format: { with: /\A\w+\z/ }
 
   attr_accessor :password
   validates_presence_of :password, on: :create
