@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+//= require jquery
 
 $(function(){
     $('#ask-button').click(function(){
