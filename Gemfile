@@ -10,7 +10,7 @@ gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'jquery-rails'
 gem 'validates_email_format_of'
 gem 'uglifier'
-
+gem 'rails_12factor'
 group :production do
   gem 'pg'
 end
