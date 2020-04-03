@@ -13,7 +13,7 @@ module ApplicationHelper
     word = words[1] if (2..4).include?(count % 10)
     word = words[0] if (11..14).include?(count % 100) ||
         [0, *(5..9)].include?(count % 10)
-    "#{count} #{word}"
+    "#{word}"  # Если необходим счетчик количества , просто добавьте #{count}
   end
 
   def fa_icon(icon_class)
