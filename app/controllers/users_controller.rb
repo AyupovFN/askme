@@ -17,8 +17,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if  @user.save
-      redirect_to root_url, notice: 'Пользователь успешно зарегистрирован!'
-    else
+      session[:user_id] = @user.id # Автоматически логинем пользователя, в случае успешной регистрации.
+      redirect_to user_path(@user), notice: 'Пользователь успешно зарегистрирован!' # отпровляем пользователя на его стр
+    else                                                                            # с сообщением о успешной регистрации
       render 'edit'
     end
   end
