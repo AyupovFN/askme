@@ -5,7 +5,7 @@ class User < ApplicationRecord
   ITERATIONS = 2000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  has_many :questions
+  has_many :questions, dependent: :destroy
 
   validates :email, email_format: { message: 'Invalid email format' }
   validates :username,
