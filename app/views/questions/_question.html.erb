@@ -7,18 +7,17 @@
 
     <%# Текст ответа, если он есть %>
     <% if question.answer.present? %>
-      <div class="user-questions buffer-both">
-        <div class="question-count">
+
+        <div class="question-author">
           <% if question.author %>
-            <%= link_to "@#{question.author.username}", user_path(question.author) %>
+            <%= link_to "От @#{question.author.username}", user_path(question.author) %>
+            <%= l(question.created_at, format: :short) %>
           <% else %>
-            <%= "@Гость" %>
+            <%= "@Гость" %><%= l(question.created_at, format: :short) %>
           <% end %>
         </div>
-      </div>
       <div class="question-answer text-lead">
         <%= question.answer %>
-
       </div>
     <% end %>
 

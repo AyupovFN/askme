@@ -28,7 +28,12 @@
 }
 
 .question-author {
-
+    color: #005a55;
+    font-size: 15px;
+    font-style: italic;
+    opacity: .5;
+    background-color: #a0a0a0;
+    border-radius: 25px;
 }
 .question-date {
   color: #a0a0a0;
