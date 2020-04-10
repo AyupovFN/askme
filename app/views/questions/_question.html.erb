@@ -7,23 +7,20 @@
 
     <%# Текст ответа, если он есть %>
     <% if question.answer.present? %>
-
-        <div class="question-author">
-          <% if question.author %>
-            <%= link_to "От @#{question.author.username}", user_path(question.author) %>
-            <%= l(question.created_at, format: :short) %>
-          <% else %>
-            <%= "@Гость" %><%= l(question.created_at, format: :short) %>
-          <% end %>
-        </div>
       <div class="question-answer text-lead">
         <%= question.answer %>
       </div>
     <% end %>
 
-    <%# Дата создания вопроса (отформатированная) %>
     <div class="question-date">
       <%= l(question.created_at, format: :short) %>
+
+      <% if question.author %>
+         <%= link_to "От @#{question.author.username}", user_path(question.author), class: "question-author"%>
+       <% else %>
+         <%= "@Гость" %>
+       <% end %>
+
     </div>
   </div>
 

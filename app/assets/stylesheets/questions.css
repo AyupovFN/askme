@@ -29,11 +29,10 @@
 
 .question-author {
     color: #005a55;
-    font-size: 15px;
+    font-size: 12px;
     font-style: italic;
     opacity: .5;
-    background-color: #a0a0a0;
-    border-radius: 25px;
+    border-radius: 20px;
 }
 .question-date {
   color: #a0a0a0;
