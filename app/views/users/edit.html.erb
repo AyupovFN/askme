@@ -42,6 +42,11 @@
         <%= f.password_field :password_confirmation, class: 'form-text-field' %>
       </div>
 
+      <div class="form-field">
+        <%= f.label 'Background for user avatar block', class: 'form-label' %>
+        <%= f.color_field :bgcolor %>
+      </div>
+
         <div class="form-action">
           <%= f.submit "Сохранить", class: 'button button-dark button-small' %>
           <%= link_to  "Удалить профиль", @user, method: :delete, data: { confirm: "Профиль и данные будут удалены!"},

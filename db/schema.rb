@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_115825) do
+ActiveRecord::Schema.define(version: 2020_04_13_121453) do
 
   create_table "questions", force: :cascade do |t|
     t.string "text"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_115825) do
     t.string "password_hash"
     t.string "password_salt"
     t.string "avatar_url"
+    t.string "bgcolor", default: "#2c3e50"
   end
 
 end
