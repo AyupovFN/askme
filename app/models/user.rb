@@ -13,6 +13,7 @@ class User < ApplicationRecord
             presence: true,
             length: { maximum: 40 }
   validates :username, format: { with: /\A\w+\z/ }
+  validates :bgcolor, format: { with: /#([a-f\d]{6}|[a-f\d]{3})\z/i.freeze }
 
   attr_accessor :password
   validates_presence_of :password, on: :create
