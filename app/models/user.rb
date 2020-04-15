@@ -4,6 +4,8 @@ class User < ApplicationRecord
   # Параметры работы модуля шифрования паролей
   ITERATIONS = 2000
   DIGEST = OpenSSL::Digest::SHA256.new
+  # Константа для валидации формата ввода цвета(от жуликов)
+  BGCOLOR = /\A#[\h]{6}\z/
 
   has_many :questions, dependent: :destroy
 
@@ -13,7 +15,7 @@ class User < ApplicationRecord
             presence: true,
             length: { maximum: 40 }
   validates :username, format: { with: /\A\w+\z/ }
-  validates :bgcolor, format: { with: /#([a-f\d]{6}|[a-f\d]{3})\z/i.freeze }
+  validates :bgcolor, format: { with: BGCOLOR }
 
   attr_accessor :password
   validates_presence_of :password, on: :create
